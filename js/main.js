@@ -460,6 +460,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('detail-description').textContent = post.description;
         document.getElementById('detail-badge').style.display = post.verified ? 'inline-block' : 'none';
 
+        // Update Progress Bar
+        const totalItems = post.items.length;
+        const completedItems = post.items.filter(item => item.status !== 'available').length;
+        const percentage = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+
+        const progressFill = document.querySelector('.progress-fill');
+        const progressText = document.getElementById('progress-text');
+        if (progressFill) {
+            progressFill.style.width = `${percentage}%`;
+        }
+        if (progressText) {
+            progressText.textContent = `${percentage}% Completado`;
+        }
+
         const itemsList = document.getElementById('detail-items-list');
         itemsList.innerHTML = '';
 

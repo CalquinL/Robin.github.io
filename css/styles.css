@@ -101,7 +101,7 @@ header {
 .progress-bar {
     background-color: var(--gris-claro);
     border-radius: 10px;
-    height: 12px;
+    height: 16px;
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -110,14 +110,22 @@ header {
     background-color: var(--verde-principal);
     height: 100%;
     border-radius: 10px;
-    color: white;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 12px;
+    transition: width 0.3s ease;
+}
+.progress-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: #333;
+    pointer-events: none;
+    z-index: 1;
 }
 
 /* --- NGO Allies Section --- */
@@ -276,53 +284,6 @@ aside.left-aside {
     border: 1px solid var(--gris-borde);
 }
 .card-box h3 { font-size: 18px; margin-bottom: 10px; color: #222; }
-
-.verification-banner {
-    background-color: #fff3cd;
-    border: 1px solid #ffeeba;
-    border-radius: 12px;
-    padding: 8px 10px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #856404;
-    font-size: 12px;
-}
-.verification-icon {
-    flex-shrink: 0;
-}
-.verification-text {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    flex: 1;
-    flex-wrap: wrap;
-}
-.verification-text strong {
-    font-size: 13px;
-    display: inline;
-    line-height: 1.2;
-}
-.verification-text p {
-    margin: 0;
-    color: #a18c5a;
-    line-height: 1.2;
-    font-size: 11px;
-    display: inline;
-}
-.verification-link {
-    color: #856404;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 11px;
-    white-space: nowrap;
-    margin-left: auto;
-    padding-left: 5px;
-}
-.verification-link:hover {
-    text-decoration: underline;
-}
 
 .alert-item {
     display: flex;
