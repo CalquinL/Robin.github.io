@@ -14,8 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         userActivity: [
             { id: 1, text: 'Donación de Pañales talla M', status: 'success', date: '2026-08-20', category: 'donation' },
-            { id: 2, text: 'Publicación de Ropa Bebé', status: 'info', date: '2026-08-15', category: 'story' },
+            { id: 2, text: 'Publicación: Ayuda para bebé recién nacido', status: 'info', date: '2026-08-15', category: 'story' },
             { id: 3, text: 'Donación de Biberones', status: 'warning', date: '2026-08-10', category: 'donation' },
+            { id: 4, text: 'Donación de Ropa de Invierno', status: 'success', date: '2026-08-05', category: 'donation' },
+            { id: 5, text: 'Publicación: Centro de Salud San José', status: 'info', date: '2026-08-01', category: 'story' },
+            { id: 6, text: 'Donación de Leche en Polvo', status: 'warning', date: '2026-07-25', category: 'donation' },
+            { id: 7, text: 'Donación de Juguetes Educativos', status: 'success', date: '2026-07-18', category: 'donation' },
         ],
         posts: [
             {
@@ -162,60 +166,62 @@ document.addEventListener('DOMContentLoaded', () => {
         const nameEl = document.getElementById('profile-name');
         const roleEl = document.getElementById('profile-role');
         const avatarEl = document.getElementById('profile-avatar');
-        const detailsGrid = document.getElementById('profile-details-grid');
-        const activityList = document.getElementById('profile-activity-list');
+        const mainContentContainer = document.querySelector('.main-content .card-box');
         const beneficiaryExtra = document.getElementById('beneficiary-extra');
 
-        if (!nameEl || !detailsGrid) return;
+        if (!nameEl || !mainContentContainer) return;
 
         nameEl.textContent = state.user.name;
         roleEl.textContent = `Rol: ${state.currentRole.charAt(0).toUpperCase() + state.currentRole.slice(1)}`;
         avatarEl.textContent = state.user.avatar;
 
-        // Render Details (Read vs Edit)
         if (isEditingProfile) {
-            detailsGrid.innerHTML = `
-                <div class="detail-field">
-                    <label>Nombre</label>
-                    <input type="text" id="edit-name" value="${state.user.name}">
+            // Render Editable Personal Information
+            mainContentContainer.innerHTML = `
+                <h3 class="card-title">Información Personal</h3>
+                <div class="profile-details-grid">
+                    <div class="detail-field">
+                        <label>Nombre</label>
+                        <div class="detail-value-edit">
+                            <input type="text" id="edit-name" value="${state.user.name}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
+                            <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="detail-field">
+                        <label>Email</label>
+                        <div class="detail-value-edit">
+                            <input type="email" id="edit-email" value="${state.user.email}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
+                            <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="detail-field">
+                        <label>Dirección</label>
+                        <div class="detail-value-edit">
+                            <input type="text" id="edit-address" value="${state.user.address}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
+                            <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="detail-field">
+                        <label>Teléfono</label>
+                        <div class="detail-value-edit">
+                            <input type="text" id="edit-phone" value="${state.user.phone}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
+                            <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                        </div>
+                    </div>
                 </div>
-                <div class="detail-field">
-                    <label>Email</label>
-                    <input type="email" id="edit-email" value="${state.user.email}">
-                </div>
-                <div class="detail-field">
-                    <label>Dirección</label>
-                    <input type="text" id="edit-address" value="${state.user.address}">
-                </div>
-                <div class="detail-field">
-                    <label>Teléfono</label>
-                    <input type="text" id="edit-phone" value="${state.user.phone}">
+                <div class="profile-edit-footer" style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                    <button id="btn-save-profile" class="btn-action btn-primary">Guardar Cambios</button>
                 </div>
             `;
+            document.getElementById('btn-save-profile')?.addEventListener('click', toggleEditMode);
         } else {
-            detailsGrid.innerHTML = `
-                <div class="detail-field">
-                    <label>Nombre</label>
-                    <span>${state.user.name}</span>
-                </div>
-                <div class="detail-field">
-                    <label>Email</label>
-                    <span>${state.user.email}</span>
-                </div>
-                <div class="detail-field">
-                    <label>Dirección</label>
-                    <span>${state.user.address}</span>
-                </div>
-                <div class="detail-field">
-                    <label>Teléfono</label>
-                    <span>${state.user.phone}</span>
-                </div>
+            // Render Activity List
+            mainContentContainer.innerHTML = `
+                <h3 class="card-title">Actividad Reciente</h3>
+                <div id="profile-activity-list" class="activity-list"></div>
             `;
-        }
 
-        // Activity History
-        if (activityList) {
-            activityList.innerHTML = '';
+            const activityList = document.getElementById('profile-activity-list');
             const filteredActivity = state.userActivity.filter(act => {
                 if (state.currentRole === 'donor') return act.category === 'donation';
                 if (state.currentRole === 'beneficiary') return act.category === 'story';
@@ -228,7 +234,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 filteredActivity.forEach(act => {
                     const item = document.createElement('div');
                     item.className = `activity-item ${act.status}`;
-
                     const statusLabel = {
                         success: 'Entregado',
                         info: 'Verificada',
@@ -277,14 +282,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function toggleEditMode() {
         isEditingProfile = !isEditingProfile;
-        const btn = document.getElementById('btn-edit-profile');
-        if (btn) {
-            btn.textContent = isEditingProfile ? 'Guardar Cambios' : 'Editar Perfil';
-            btn.className = isEditingProfile ? 'btn-action btn-primary' : 'btn-action btn-secondary';
-        }
 
         if (!isEditingProfile) {
-            // Save logic
+            // Save logic - capture values from inputs if they exist
             const name = document.getElementById('edit-name')?.value;
             const email = document.getElementById('edit-email')?.value;
             const addr = document.getElementById('edit-address')?.value;

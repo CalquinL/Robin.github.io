@@ -235,6 +235,25 @@ header {
     width: 100%;
 }
 
+.profile-container {
+    grid-template-columns: 300px 1fr;
+}
+
+.profile-container .main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container .page-section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container .activity-card {
+    flex: 1;
+}
+
 .left-aside.hidden {
     display: none;
 }
@@ -736,6 +755,118 @@ aside.right-aside {
 }
 .user-profile-card .btn-saved {
     font-weight: bold;
+}
+
+/* --- Profile Page Aside --- */
+.profile-aside-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+}
+.achievements-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px 10px;
+    margin-top: 10px;
+    justify-items: center;
+}
+.achievement-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.achievement-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+.achievement-label {
+    font-size: 11px;
+    color: var(--gris-texto);
+    text-align: center;
+}
+
+/* --- Profile Personal Info Layout --- */
+.profile-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+.detail-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.detail-field label {
+    font-size: 13px;
+    color: var(--gris-texto);
+    font-weight: bold;
+}
+.detail-value-edit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--gris-claro);
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    border: 1px solid var(--gris-borde);
+}
+.edit-icon {
+    color: var(--naranja-principal);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.edit-icon:hover {
+    transform: scale(1.2);
+}
+
+/* --- Settings List Styles --- */
+.settings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.settings-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 10px;
+    text-decoration: none;
+    color: #444;
+    font-size: 14px;
+    border-radius: 8px;
+    transition: 0.2s;
+    margin-bottom: 5px;
+}
+.settings-item:hover {
+    background-color: var(--gris-claro);
+}
+.settings-item .settings-text {
+    font-weight: 500;
+}
+.settings-item svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--gris-texto);
+}
+.settings-divider {
+    height: 1px;
+    background-color: var(--gris-borde);
+    margin: 10px 0;
+}
+.settings-item.logout {
+    color: #d9534f;
+}
+.settings-item.logout:hover {
+    background-color: #fff5f5;
+}
+.settings-item.logout svg {
+    stroke: #d9534f;
 }
 
 /* --- Responsive --- */
