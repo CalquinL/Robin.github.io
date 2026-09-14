@@ -71,15 +71,18 @@
 
     <div class="container">
         <aside class="left-aside">
-            <div class="card-box">
-                <h3>Alertas Relevantes</h3>
-                <div class="alert-item">🚨 Inundaciones en el norte. Se necesitan mantas.</div>
-                <div class="alert-item">🔥 Incendio forestal. Urge agua y alimentos no perecederos.</div>
-                <div class="alert-item">🏠 Refugio temporal necesita ropa de invierno.</div>
-            </div>
-            <div class="card-box">
-                <h3>Estadísticas Globales</h3>
-                <p style="font-size: 14px; color: #555;">Este mes se han donado <strong style="color: var(--naranja-principal);">1,245 ítems</strong> gracias a la comunidad.</p>
+            <div class="card-box user-profile-card">
+                <div class="user-info-header">
+                    <div class="avatar-circle">U</div>
+                    <h4>Usuario Actual</h4>
+                </div>
+                <div class="user-profile-actions">
+                    <a href="profile.html" class="btn-action btn-secondary">Editar Perfil</a>
+                    <a href="#" class="btn-action btn-secondary btn-saved">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        Guardados
+                    </a>
+                </div>
             </div>
         </aside>
 
@@ -134,47 +137,16 @@
             <div id="right-aside-feed">
                 <button class="create-post-btn">+ Crear Nueva Publicación</button>
 
-                <div class="card-box urgent-needs">
-                    <h3>Necesidades Urgentes</h3>
+                <div class="card-box">
+                    <h3>Alertas Relevantes</h3>
+                    <div class="alert-item">🚨 Inundaciones en el norte. Se necesitan mantas.</div>
+                    <div class="alert-item">🔥 Incendio forestal. Urge agua y alimentos no perecederos.</div>
+                    <div class="alert-item">🏠 Refugio temporal necesita ropa de invierno.</div>
+                </div>
 
-                    <div class="urgent-item">
-                        <div class="urgent-user">
-                            <div class="avatar-circle">M</div>
-                            <span class="username">María Fernández</span>
-                        </div>
-                        <div class="urgent-campaign">Ayuda para bebé recién nacido</div>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%;">85%</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="urgent-item">
-                        <div class="urgent-user">
-                            <div class="avatar-circle">J</div>
-                            <span class="username">Juan Pérez</span>
-                        </div>
-                        <div class="urgent-campaign">Medicamentos para tratamiento</div>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 60%;">60%</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="urgent-item">
-                        <div class="urgent-user">
-                            <div class="avatar-circle">C</div>
-                            <span class="username">Centro San José</span>
-                        </div>
-                        <div class="urgent-campaign">Termómetro digital urgente</div>
-                        <div class="progress-container">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 92%;">92%</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card-box">
+                    <h3>Estadísticas Globales</h3>
+                    <p style="font-size: 14px; color: #555;">Este mes se han donado <strong style="color: var(--naranja-principal);">1,245 ítems</strong> gracias a la comunidad.</p>
                 </div>
 
                 <div class="card-box ngo-section">

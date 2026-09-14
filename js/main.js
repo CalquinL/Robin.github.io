@@ -163,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const roleEl = document.getElementById('profile-role');
         const avatarEl = document.getElementById('profile-avatar');
         const detailsGrid = document.getElementById('profile-details-grid');
-        const verifyBanner = document.getElementById('verify-banner-container');
         const activityList = document.getElementById('profile-activity-list');
         const beneficiaryExtra = document.getElementById('beneficiary-extra');
 
@@ -212,24 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span>${state.user.phone}</span>
                 </div>
             `;
-        }
-
-        // Verification Banner
-        if (verifyBanner) {
-            if (!state.user.isVerified) {
-                verifyBanner.innerHTML = `
-                    <div class="verify-banner">
-                        <div class="verify-text">
-                            <strong>Cuenta no verificada</strong>
-                            <span>Verifica tu identidad para generar más confianza en la comunidad.</span>
-                        </div>
-                        <button id="btn-verify-account" class="btn-action btn-primary">Verificar Cuenta</button>
-                    </div>
-                `;
-                document.getElementById('btn-verify-account')?.addEventListener('click', handleVerifyAccount);
-            } else {
-                verifyBanner.innerHTML = `<div class="verify-banner verified">✓ Cuenta verificada correctamente</div>`;
-            }
         }
 
         // Activity History
@@ -314,13 +295,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (addr) state.user.address = addr;
             if (phone) state.user.phone = phone;
         }
-        renderProfile();
-    }
-
-    function handleVerifyAccount() {
-        alert('Redirigiendo a la pantalla de carga de documentos...');
-        // Simulating verification success
-        state.user.isVerified = true;
         renderProfile();
     }
 
