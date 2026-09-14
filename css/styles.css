@@ -276,6 +276,54 @@ aside.left-aside {
     border: 1px solid var(--gris-borde);
 }
 .card-box h3 { font-size: 18px; margin-bottom: 10px; color: #222; }
+
+.verification-banner {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 12px;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #856404;
+    font-size: 12px;
+}
+.verification-icon {
+    flex-shrink: 0;
+}
+.verification-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    flex-wrap: wrap;
+}
+.verification-text strong {
+    font-size: 13px;
+    display: inline;
+    line-height: 1.2;
+}
+.verification-text p {
+    margin: 0;
+    color: #a18c5a;
+    line-height: 1.2;
+    font-size: 11px;
+    display: inline;
+}
+.verification-link {
+    color: #856404;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 11px;
+    white-space: nowrap;
+    margin-left: auto;
+    padding-left: 5px;
+}
+.verification-link:hover {
+    text-decoration: underline;
+}
+
 .alert-item {
     display: flex;
     align-items: center;
