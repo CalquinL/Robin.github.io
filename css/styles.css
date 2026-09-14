@@ -245,7 +245,7 @@ header {
 }
 
 .profile-container .page-section {
-    height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -489,7 +489,7 @@ aside.left-aside {
 .btn-verify { background: var(--verde-principal); color: white; margin-right: 5px; }
 .btn-reject { background: #d9534f; color: white; }
 
-.notification-item {
+.notification-item, .activity-item {
     flex-direction: column;
     align-items: flex-start;
     position: relative;
@@ -672,12 +672,57 @@ aside.left-aside {
     background: var(--naranja-oscuro);
 }
 
-/* Responsive for detail */
-@media (max-width: 900px) {
-    .detail-container {
+/* Active Publications Layout for Profile */
+.active-pub-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+    padding: 15px;
+}
+.active-pub-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.active-pub-right {
+    background: var(--gris-claro);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--gris-borde);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.item-status-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 1px solid var(--gris-borde);
+    padding-bottom: 8px;
+}
+.item-status-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    background: var(--blanco);
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--gris-borde);
+}
+
+@media (max-width: 1100px) {
+    .active-pub-layout {
         grid-template-columns: 1fr;
     }
 }
+
 
 /* --- ASIDE DERECHO --- */
 aside.right-aside {
@@ -1055,7 +1100,7 @@ aside.right-aside {
     border-color: #ccc;
 }
 
-.notification-item {
+.notification-item, .activity-item {
     cursor: pointer;
     transition: 0.2s;
     display: flex;
@@ -1063,7 +1108,7 @@ aside.right-aside {
     align-items: flex-start;
 }
 
-.notification-item:hover {
+.notification-item:hover, .activity-item:hover {
     background: var(--gris-claro);
     transform: translateX(5px);
 }
@@ -1149,17 +1194,17 @@ aside.right-aside {
 }
 
 /* Category/Urgency colors - Separated from unread signal */
-.notification-item[data-status="info"] { border-left-color: var(--gris-borde); }
-.notification-item[data-status="info"] .notification-icon { color: var(--gris-texto); }
+.notification-item[data-status="info"], .activity-item[data-status="info"] { border-left-color: var(--gris-borde); }
+.notification-item[data-status="info"] .notification-icon, .activity-item[data-status="info"] .notification-icon { color: var(--gris-texto); }
 
-.notification-item[data-status="success"] { border-left-color: var(--verde-principal); }
-.notification-item[data-status="success"] .notification-icon { color: var(--verde-principal); }
+.notification-item[data-status="success"], .activity-item[data-status="success"] { border-left-color: var(--verde-principal); }
+.notification-item[data-status="success"] .notification-icon, .activity-item[data-status="success"] .notification-icon { color: var(--verde-principal); }
 
-.notification-item[data-status="warning"] { border-left-color: #ffc107; }
-.notification-item[data-status="warning"] .notification-icon { color: #ffc107; }
+.notification-item[data-status="warning"], .activity-item[data-status="warning"] { border-left-color: #ffc107; }
+.notification-item[data-status="warning"] .notification-icon, .activity-item[data-status="warning"] .notification-icon { color: #ffc107; }
 
-.notification-item[data-status="danger"] { border-left-color: #dc3545; }
-.notification-item[data-status="danger"] .notification-icon { color: #dc3545; }
+.notification-item[data-status="danger"], .activity-item[data-status="danger"] { border-left-color: #dc3545; }
+.notification-item[data-status="danger"] .notification-icon, .activity-item[data-status="danger"] .notification-icon { color: #dc3545; }
 
 /* --- Impact & Milestones --- */
 .impact-metric {

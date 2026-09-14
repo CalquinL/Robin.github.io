@@ -178,39 +178,43 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isEditingProfile) {
             // Render Editable Personal Information
             mainContentContainer.innerHTML = `
-                <h3 class="card-title">Información Personal</h3>
-                <div class="profile-details-grid">
-                    <div class="detail-field">
-                        <label>Nombre</label>
-                        <div class="detail-value-edit">
-                            <input type="text" id="edit-name" value="${state.user.name}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
-                            <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                <div style="display: flex; flex-direction: column; height: 100%;">
+                    <div style="flex: 1;">
+                        <h3 class="card-title">Información Personal</h3>
+                        <div class="profile-details-grid">
+                            <div class="detail-field">
+                                <label>Nombre</label>
+                                <div class="detail-value-edit">
+                                    <input type="text" id="edit-name" value="${state.user.name}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
+                                    <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="detail-field">
+                                <label>Email</label>
+                                <div class="detail-value-edit">
+                                    <input type="email" id="edit-email" value="${state.user.email}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
+                                    <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="detail-field">
+                                <label>Dirección</label>
+                                <div class="detail-value-edit">
+                                    <input type="text" id="edit-address" value="${state.user.address}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
+                                    <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="detail-field">
+                                <label>Teléfono</label>
+                                <div class="detail-value-edit">
+                                    <input type="text" id="edit-phone" value="${state.user.phone}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
+                                    <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="detail-field">
-                        <label>Email</label>
-                        <div class="detail-value-edit">
-                            <input type="email" id="edit-email" value="${state.user.email}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
-                            <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
-                        </div>
+                    <div class="profile-edit-footer" style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                        <button id="btn-save-profile" class="btn-action btn-primary">Guardar Cambios</button>
                     </div>
-                    <div class="detail-field">
-                        <label>Dirección</label>
-                        <div class="detail-value-edit">
-                            <input type="text" id="edit-address" value="${state.user.address}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
-                            <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
-                        </div>
-                    </div>
-                    <div class="detail-field">
-                        <label>Teléfono</label>
-                        <div class="detail-value-edit">
-                            <input type="text" id="edit-phone" value="${state.user.phone}" style="border:none; background:transparent; width:100%; outline:none; font-size:14px;">
-                            <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-edit-footer" style="display: flex; justify-content: flex-end; margin-top: 20px;">
-                    <button id="btn-save-profile" class="btn-action btn-primary">Guardar Cambios</button>
                 </div>
             `;
             document.getElementById('btn-save-profile')?.addEventListener('click', toggleEditMode);
@@ -234,6 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 filteredActivity.forEach(act => {
                     const item = document.createElement('div');
                     item.className = `activity-item ${act.status}`;
+                    item.dataset.status = act.status;
                     const statusLabel = {
                         success: 'Entregado',
                         info: 'Verificada',
@@ -242,15 +247,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     }[act.status] || 'Actividad';
 
                     item.innerHTML = `
-                        <div class="activity-info">
-                            <div class="activity-main">
-                                <span class="activity-text">${act.text}</span>
-                                <span class="activity-status-tag">${statusLabel}</span>
+                        <div class="notification-content">
+                            <div class="notification-icon">${getStatusIcon(act.status)}</div>
+                            <div class="notification-text">
+                                <p>${act.text} <span class="activity-status-tag" style="font-size: 12px; font-weight: bold; color: var(--gris-texto); margin-left: 5px;">${statusLabel}</span></p>
+                                <span class="time">${act.date}</span>
                             </div>
-                            <span class="activity-date">${act.date}</span>
-                        </div>
-                        <div class="activity-status-pill">
-                            ${getStatusIcon(act.status)}
                         </div>
                     `;
                     item.addEventListener('click', () => alert(`Navegando al detalle de: ${act.text}`));
@@ -261,9 +263,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Role specific views
         if (beneficiaryExtra) {
+            const postsContainer = document.getElementById('beneficiary-posts-container');
             if (state.currentRole === 'beneficiary') {
                 beneficiaryExtra.style.display = 'block';
-                document.getElementById('active-story-text').textContent = 'Historias para bebés y ropa 0-3 meses';
+                if (postsContainer) {
+                    postsContainer.innerHTML = '';
+                    // Filter posts that belong to beneficiaries (simulating "my posts")
+                    const myPosts = state.posts.filter(p => p.role === 'Beneficiaria');
+
+                    if (myPosts.length === 0) {
+                        postsContainer.innerHTML = '<p class="empty-text">No tienes publicaciones activas.</p>';
+                    } else {
+                        myPosts.forEach(post => {
+                            const card = document.createElement('div');
+                            card.className = 'story-card';
+                            card.dataset.postId = post.id;
+
+                            card.innerHTML = `
+                                <div class="active-pub-layout">
+                                    <div class="active-pub-left">
+                                        <div class="story-header" style="padding: 0;">
+                                            <div class="story-user">
+                                                <div class="avatar-circle">${post.avatar}</div>
+                                                <div class="story-info">
+                                                    <h4>${post.name} ${post.verified ? '<span class="badge-verified">Verificado</span>' : ''}</h4>
+                                                    <span>${post.role} • ${post.time}</span>
+                                                </div>
+                                            </div>
+                                            <div class="story-actions">
+                                                <button class="btn-action btn-secondary">Editar</button>
+                                            </div>
+                                        </div>
+                                        <div class="story-content" style="padding: 0;">
+                                            <p>${post.description}</p>
+                                            <div class="story-image">🖼️</div>
+                                        </div>
+                                    </div>
+                                    <div class="active-pub-right">
+                                        <h4 class="item-status-title">Estado de Ítems</h4>
+                                        <div class="item-status-list">
+                                            ${post.items.map(item => `
+                                                <div class="status-item">
+                                                    <span>${item.name}</span>
+                                                    <span class="badge ${item.status === 'available' ? 'badge-green' : 'badge-orange'}">
+                                                        ${item.status === 'available' ? 'Disponible' : 'Reservado'}
+                                                    </span>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            card.addEventListener('click', (e) => {
+                                if (!e.target.closest('.btn-action')) {
+                                    window.location.href = `detail.html?id=${post.id}`;
+                                }
+                            });
+                            postsContainer.appendChild(card);
+                        });
+                    }
+                }
             } else {
                 beneficiaryExtra.style.display = 'none';
             }
@@ -463,7 +522,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Profile Edit Button
         if (e.target.id === 'btn-edit-profile') {
-            toggleEditMode();
+            if (!isEditingProfile) {
+                toggleEditMode();
+            }
         }
 
         // Change Photo Button
